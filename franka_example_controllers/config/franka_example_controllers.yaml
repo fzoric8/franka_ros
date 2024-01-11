@@ -155,3 +155,39 @@ teleop_joint_pd_example_controller:
        ddq_max_lower: [0.8, 0.8, 0.8, 0.8, 10.0, 10.0, 10.0] # [rad/s^2]
        ddq_max_upper: [6.0, 6.0, 6.0, 6.0, 15.0, 20.0, 20.0] # [rad/s^2]
        contact_force_threshold: 5.0 # [N]
+       
+# Joint position trajectory example controller
+joint_position_trajectory_example_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - panda_joint1
+    - panda_joint2
+    - panda_joint3
+    - panda_joint4
+    - panda_joint5
+    - panda_joint6
+    - panda_joint7
+   constraints:
+     goal_time: 0.5
+     panda_joint1:
+       goal: 0.05
+     panda_joint2:
+       goal: 0.05
+     panda_joint3:
+       goal: 0.05
+     panda_joint4:
+       goal: 0.05
+     panda_joint5:
+       goal: 0.05
+     panda_joint6:
+       goal: 0.05
+     panda_joint7:
+       goal: 0.05
+  gains:
+    panda_joint1: { p: 12000, d: 50, i: 0.0, i_clamp: 10000 }
+    panda_joint2: { p: 30000, d: 100, i: 0.02, i_clamp: 10000 }
+    panda_joint3: { p: 18000, d: 50, i: 0.01, i_clamp: 1 }
+    panda_joint4: { p: 18000, d: 70, i: 0.01, i_clamp: 10000 }
+    panda_joint5: { p: 12000, d: 70, i: 0.01, i_clamp: 1 }
+    panda_joint6: { p: 7000, d: 50, i: 0.01, i_clamp: 1 }
+    panda_joint7: { p: 2000, d: 20, i: 0.0, i_clamp: 1 }
